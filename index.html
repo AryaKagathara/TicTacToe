@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" > 
+</head>
+<body>
+
+    <div id="main">
+        <img src="images/logo.png" id="mainlogo" width="300px">
+        <br>
+        <div class="devlogo">Developed By:<br>
+            <img src="images/hw.png" width="100px">
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+            <div class="help">
+                    <img src="images/info.png" width="50px" data-toggle="modal" data-target="#myModal">
+            </div>
+                <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            
+                            <div class="modal-header">
+                                <h4 class="modal-title">Info / Setting</h4>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="text-center"><img src="images/logo.png" width="200px"></div>
+                                <div class="form-group">
+                                    <label>Mark Choice:</label>
+                                        <div class="radio">
+                                            <label class="radio-label"><input type="radio" name="optradio" id="circle" value="O" autofocus> &ensp; O</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label class="radio-label" ><input type="radio" name="optradio" id="cross" value="X"> &ensp; X</label>
+                                        </div>    
+                                        <br>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="change()">OK</button>
+                                </div>
+                                <div>
+                                    <h5>Hints</h5>
+                                    <h6 class="text-danger">Click On The Blank Box Of Your Choice</h6>
+                                    <ul>
+                                        <li>Try To Win By Putting Your Mark</li>
+                                        <li>Win By Row</li>
+                                        <li>Win By Column</li>
+                                        <li>Win By Diagonally</li>
+                                    </ul>
+                                    <div>
+                                        <h5>Developer</h5>
+                                            <p><strong>Arya Kagathara</strong></p>
+                                            <p>November 5th, 2019</p>
+                                    </div>
+                                    <div>
+                                        <h5>Build for</h5>
+                                            <ul>
+                                                <li>Computer</li>
+                                                <li>Google Pixel 2 XL</li>
+                                            </ul>
+                                            
+                                    </div>
+                                    <div>
+                                        <h5>Bugs & reports</h5>
+                                            <p><strong>Solve it by yourself, you moron.</strong></p>
+                                    </div>
+                                    <div>
+                                        <h5>Legal Notice</h5>
+                                                <strong>Basically it is Open Source</strong>, do not take this notice seriously.                              
+                                                These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, Webiste Name accessible at Website.com.
+        
+                                                These Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree with any of these Website Standard Terms and Conditions.
+        
+                                                Minors or people below 18 years old are not allowed to use this Website.
+                                                <br><br>
+                                                <h5>Intellectual Property Rights</h5>
+                                                Other than the content you own, under these Terms, Company Name and/or its licensors own all the intellectual property rights and materials contained in this Website.
+        
+                                                You are granted limited license only for purposes of viewing the material contained on this Website.
+                                                <br><br>
+                                                <h5>Restrictions</h5>
+                                                You are specifically restricted from all of the following:
+                                                <ul>
+                                                    <li>publishing any Website material in any other media;</li>
+                                                    <li>selling, sublicensing and/or otherwise commercializing any Website material;</li>
+                                                    <li>publicly performing and/or showing any Website material;</li>
+                                                    <li>using this Website in any way that is or may be damaging to this Website;</li>
+                                                    <li>using this Website in any way that impacts user access to this Website;</li>
+                                                    <li>using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</li>
+                                                    <li>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</li>
+                                                    <li>using this Website to engage in any advertising or marketing.</li>
+                                                </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <img src="images/hw.png" width="60px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+        <div class="score myfont rows">
+            <div class="score-label cols"><h1 class="player">Player </h1><hr><div id="player-mark">O</div></div>
+            <div class="score-label cols"><h1 class="computer">Computer </h1><hr><div id="computer-mark">X</div></div>
+        </div>
+
+        <div class="reset-board">
+            <div class="reset" onclick="start()">
+                Start Game 
+            </div>
+        </div>
+
+        <div class="table-board">
+            <div class="board" id="board">
+                <div class="row">
+                    <div class="box " id="1" onclick="gameon('1')"></div>
+                    <div class="box " id="2" onclick="gameon('2')"></div>
+                    <div class="box " id="3" onclick="gameon('3')"></div>
+                </div>
+                <div class="row">
+                    <div class="box " id="4" onclick="gameon('4')"></div>
+                    <div class="box " id="5" onclick="gameon('5')"></div>
+                    <div class="box " id="6" onclick="gameon('6')"></div>
+                </div>
+                <div class="row">
+                    <div class="box " id="7" onclick="gameon('7')"></div>
+                    <div class="box " id="8" onclick="gameon('8')"></div>
+                    <div class="box " id="9" onclick="gameon('9')"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-board">
+            <div class="result" id="result">
+                All The Best
+            </div>
+        </div>
+
+    </div>
+
+<script type="text/javascript" src="app.js">
+    
+
+</script>
+
+</body>
+</html>
